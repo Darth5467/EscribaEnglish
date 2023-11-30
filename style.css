@@ -1,0 +1,38 @@
+body {
+    background-color: White;
+    display: contents;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: medium;
+}
+
+.container {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    color: blue;
+    align-items: center;
+    
+}
+
+h2 {
+    color: blue;
+    align-items: center;
+}
+
+h3 {
+    color: blue;
+    align-items: center;
+}
+
+a {
+    color: blue;
+    align-items: center;
+    font-size: large;
+    height: 100vh;
+}
+

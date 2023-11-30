@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTENCES</title>
+    <link rel="stylesheet" href="style.css"> 
+   
+</head>
+</head>
+<body>
+
+    <h1>RANDOM WORDS / RANDOM SENTENCES</h1>
+
+    <button onclick="getRandomWord()">Random Word</button>
+    <div id="translationResult"></div>
+    <script>
+        function getRandomWord() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                        var result = JSON.parse(xhr.responseText);
+                        document.getElementById("translationResult").innerHTML = "<p><strong>English Word:</strong> " + result.English + "</p><p><strong>Spanish Translation:</strong> " + result.Spanish + "</p>";
+                    } else {
+                        console.error("Error: " + xhr.status);
+                    }
+                }
+            };
+            xhr.open("GET", "Learning.php", true);
+            xhr.send();
+        }
+    </script>
+    
+    <button onclick="getRandomSentence()">Random Sentence</button>
+    <div id="translationResult"></div>
+    <script>
+        function getRandomSentence() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                        var result = JSON.parse(xhr.responseText);
+                        document.getElementById("translationResult").innerHTML = "<p><strong>English Sentence:</strong> " + result.EnglishS + "</p><p><strong>Spanish Translation:</strong> " + result.SpanishS + "</p>";
+                    } else {
+                        console.error("Error: " + xhr.status);
+                    }
+                }
+            };
+            xhr.open("GET", "Sentences.php", true);
+            xhr.send();
+        }
+    </script>
+
+
+</form>
+
+<p>Return to Learning Mode? <a href="Learning.html" id="ReturnL">Click here</a></p>
+</body>
+</html>
